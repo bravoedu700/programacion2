@@ -103,9 +103,12 @@ public class Main {
 		//---------------------------------------------------------------------------------------------------------------------
 		//PARTE 2 - PUNTO 1 A-------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 2 Punto 1A ------------------------------------------------------------------------------------------");
-		CriterioIntervalo mayorDuracion = new CriterioIntervalo(new Duracion(), 400, CriterioIntervalo.MAYOR);
+		
+		CriterioMayor mayorDuracion = new CriterioMayor(new Duracion(), 400);		
+		
 		System.out.println("Pistas cuya duracion sea mayor a 400");
 		Vector<Pista> resultado1A = coleccion.busqueda(mayorDuracion);
+		
 		mostrar_resultado(resultado1A);
 
 		System.out.println();
@@ -131,7 +134,7 @@ public class Main {
 		
 		//PARTE 2 - PUNTO 1 D---------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 2 Punto 1D ------------------------------------------------------------------------------------------");
-		CriterioIntervalo critFecha = new CriterioIntervalo(new Anio(), 2006, CriterioIntervalo.MAYOR);
+		CriterioMayor critFecha = new CriterioMayor(new Anio(), 2006);
 		CriterioAnd critAnd2 = new CriterioAnd(rock, critFecha);
 		CriterioParcial cP = new CriterioParcial(new Interprete(), "Coldplay");
 		CriterioAnd critAnd3 = new CriterioAnd(rock, cP);
@@ -171,6 +174,7 @@ public class Main {
 				
 		
 		System.out.println("termino------------------------------------------------------------------------------------------");
+		
 		
 	}
 }

@@ -19,15 +19,6 @@ public class PlayListSimple extends Musica {
 	public void addElemento (Musica m){
 		elementos.add(m);
 	}
-		
-	public void eliminar(Musica m) {
-		if (elementos.contains(m)){
-			elementos.remove(m);
-		}
-		for (Musica ite : elementos){
-				ite.eliminar(m);
-		}
-	}
 	
 	public Vector<Pista> busqueda(Criterio c){
 		Vector <Pista> pistas = new Vector<Pista>();

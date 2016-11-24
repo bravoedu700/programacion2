@@ -10,9 +10,7 @@ public abstract class Musica {
 	public abstract int getAnio();
 	public abstract String getGenero();
 	public abstract String getAlbum();
-	//public abstract void mostrar();
 	public abstract Vector<Pista> busqueda(Criterio c);
-	public abstract void eliminar(Musica m);
 	
 	public String getNombre() {
 		return nombre;
@@ -22,7 +20,7 @@ public abstract class Musica {
 		this.nombre = nombre;
 	}
 	
-	public void mostrarDuracion(){
-		System.out.println("Duracion de " + this.nombre + ": " + this.getDuracion());
+	public String mostrarDuracion(){
+		return ("Duracion de " + this.nombre + ": " + this.getDuracion());
 	}
 }

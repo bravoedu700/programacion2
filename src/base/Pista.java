@@ -48,15 +48,13 @@ public class Pista extends Musica{
 		return album;
 	}
 	
-	
 	public String getNombre() {
 		return nombre;
 	}
 		
 	public String toString(){
 		String msj = this.getId() + " - " + this.getNombre() + " - " + this.getInterprete() + " - " +this.getAlbum() + " - ("+this.getGenero()+", "+this.getAnio()+") - " +this.getDuracion() + "\n";
-		return msj;
-		
+		return msj;	
 	}
 	
 	public Vector<Pista> busqueda(Criterio c){
@@ -68,7 +66,6 @@ public class Pista extends Musica{
 		return pistas;
 	}
 	
-		
 	public void setDuracion (int d){
 		duracion = d;
 	}
@@ -87,8 +84,5 @@ public class Pista extends Musica{
 	
 	public void setGenero(String g){
 		genero = g;
-	}
-	
-	public void eliminar(Musica m) {
 	}
 }

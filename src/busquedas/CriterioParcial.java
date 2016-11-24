@@ -10,8 +10,6 @@ public class CriterioParcial extends CriterioSimple{
 	}
 
 	public boolean cumple(Pista p) {
-		return ((""+extr.get(p)).toLowerCase().contains((""+valor).toLowerCase()));
+		return (((String) extr.get(p)).toLowerCase().contains(((String) valor).toLowerCase()));
 	}
-
-
 }
