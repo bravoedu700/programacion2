@@ -7,14 +7,13 @@ import base.Pista;
 import base.PlayListSimple;
 
 import busquedas.*;
-import extraccion.*;
 
 public class Main {
 
 	public static void mostrar_resultado(Vector <Pista> P){
+				
 		if(P.isEmpty()){
 			System.out.println("Sin resultados");
-
 		}
 		else
 		{
@@ -24,9 +23,16 @@ public class Main {
 		}
 	}
 	
-	public static void mostrar_lista(Musica M){
-		System.out.println(M.toString());
-		System.out.println();
+	public static void mostrar_lista(PlayListSimple P){
+		System.out.println(P.toString() + " (" + P.CantidadElementos() + " elementos)");
+		Vector<Musica> elementos = P.getElementos();
+		for(Enumeration<Musica> E = elementos.elements(); E.hasMoreElements();){
+			System.out.println(E.nextElement().toString());
+		}
+	}
+	
+	public static void mostrar_duracion(Musica M){
+		System.out.println("La duración de " + M.getNombre() + " es " + M.getDuracion());		
 	}
 	
 	public static void main(String[] args) {
@@ -91,10 +97,10 @@ public class Main {
 		//---------------------------------------------------------------------------------------------------------------------
 		//PARTE 1 - PUNTO 4 -------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 1 Punto 4 ------------------------------------------------------------------------------------------");
-		clasicosDelRock.mostrarDuracion();
-		loMejor.mostrarDuracion();
-		coldplay.mostrarDuracion();
-		elIndio.mostrarDuracion();
+		mostrar_duracion(clasicosDelRock);
+		mostrar_duracion(loMejor);
+		mostrar_duracion(coldplay);
+		mostrar_duracion(elIndio);
 		System.out.println();
 		
 		System.out.println("------------------------------------------------PARTE 2------------------------------------------------");
@@ -104,7 +110,7 @@ public class Main {
 		//PARTE 2 - PUNTO 1 A-------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 2 Punto 1A ------------------------------------------------------------------------------------------");
 		
-		CriterioMayor mayorDuracion = new CriterioMayor(new Duracion(), 400);		
+		CriterioMayorDuracion mayorDuracion = new CriterioMayorDuracion(400);		
 		
 		System.out.println("Pistas cuya duracion sea mayor a 400");
 		Vector<Pista> resultado1A = coleccion.busqueda(mayorDuracion);
@@ -115,7 +121,7 @@ public class Main {
 		
 		//PARTE 2 - PUNTO 1 B-------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 2 Punto 1B ------------------------------------------------------------------------------------------");
-		CriterioParcial rock = new CriterioParcial(new Genero(), "rOCk");
+		CriterioParcialGenero rock = new CriterioParcialGenero("rOCk");
 		System.out.println("Pistas cuyo genero contiene 'Rock'");
 		Vector<Pista> resultado1B = coleccion.busqueda(rock);
 		mostrar_resultado(resultado1B);
@@ -123,8 +129,8 @@ public class Main {
 		
 		//PARTE 2 - PUNTO 1 C---------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 2 Punto 1C ------------------------------------------------------------------------------------------");
-		CriterioParcial nomRock = new CriterioParcial(new Nombre(), "rock");
-		CriterioParcial lmfao = new CriterioParcial(new Interprete(), "LMFAO");
+		CriterioParcialNombre nomRock = new CriterioParcialNombre("rock");
+		CriterioParcialInterprete lmfao = new CriterioParcialInterprete("LMFAO");
 		CriterioNot critNot = new CriterioNot(lmfao);
 		CriterioAnd critAnd = new CriterioAnd(nomRock, critNot);
 		System.out.println("Pistas cuyo nombre contiene 'rock' y el interprete NO es 'LMFAO'");
@@ -134,9 +140,9 @@ public class Main {
 		
 		//PARTE 2 - PUNTO 1 D---------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 2 Punto 1D ------------------------------------------------------------------------------------------");
-		CriterioMayor critFecha = new CriterioMayor(new Anio(), 2006);
+		CriterioMayorAnio critFecha = new CriterioMayorAnio(2006);
 		CriterioAnd critAnd2 = new CriterioAnd(rock, critFecha);
-		CriterioParcial cP = new CriterioParcial(new Interprete(), "Coldplay");
+		CriterioParcialInterprete cP = new CriterioParcialInterprete("Coldplay");
 		CriterioAnd critAnd3 = new CriterioAnd(rock, cP);
 		CriterioOr critOr = new CriterioOr(critAnd2, critAnd3);
 		System.out.println("pistas cuyo genero contenga 'rock' y cuya fecha sea mayor a '2006', o cuyo genero contenga 'rock' y cuyo interprete sea 'coldplay'");

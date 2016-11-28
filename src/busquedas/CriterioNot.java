@@ -6,11 +6,11 @@ public class CriterioNot implements Criterio{
 	Criterio criterio;
 
 	public CriterioNot(Criterio c) {
-		criterio= c;
+		this.criterio = c;
 	}
 	
 	public boolean cumple(Pista p) {
-		return (!criterio.cumple(p));
+		return (!this.criterio.cumple(p));
 	}
 
 }

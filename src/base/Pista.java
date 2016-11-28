@@ -53,8 +53,9 @@ public class Pista extends Musica{
 	}
 		
 	public String toString(){
-		String msj = this.getId() + " - " + this.getNombre() + " - " + this.getInterprete() + " - " +this.getAlbum() + " - ("+this.getGenero()+", "+this.getAnio()+") - " +this.getDuracion() + "\n";
-		return msj;	
+		
+		return ( this.getId() + " - " + this.getNombre() + " - " + this.getInterprete() + " - " +this.getAlbum() + " - ("+this.getGenero()+", "+this.getAnio()+") - " +this.getDuracion());
+
 	}
 	
 	public Vector<Pista> busqueda(Criterio c){
@@ -65,6 +66,28 @@ public class Pista extends Musica{
 		}
 		return pistas;
 	}
+	
+	public boolean equals (Object obj) {
+        if (obj instanceof Pista) {
+        	Pista auxPista = (Pista) obj;
+            if (this.getNombre().equals(auxPista.getNombre()) && 
+        		this.getAlbum().equals(auxPista.getAlbum()) && 
+        		this.getAnio() == auxPista.getAnio() && 
+        		this.getDuracion() == auxPista.getDuracion() && 
+        		this.getGenero().equals(auxPista.getGenero()) && 
+        		this.getInterprete().equals(auxPista.getInterprete())
+        		){
+            		return true; 
+            	} 
+            	else { 
+            		return false; 
+            	}
+        } 
+        else { 
+        	return false; 
+        }
+	}
+	
 	
 	public void setDuracion (int d){
 		duracion = d;
@@ -84,5 +107,10 @@ public class Pista extends Musica{
 	
 	public void setGenero(String g){
 		genero = g;
+	}
+
+
+	public int CantidadElementos() {
+		return 1;
 	}
 }

@@ -4,13 +4,9 @@ import busquedas.Criterio;
 
 public abstract class Musica {
 	String nombre;
-	
-	public abstract String getInterprete();
 	public abstract int getDuracion();
-	public abstract int getAnio();
-	public abstract String getGenero();
-	public abstract String getAlbum();
 	public abstract Vector<Pista> busqueda(Criterio c);
+	public abstract int CantidadElementos();
 	
 	public String getNombre() {
 		return nombre;
@@ -20,7 +16,4 @@ public abstract class Musica {
 		this.nombre = nombre;
 	}
 	
-	public String mostrarDuracion(){
-		return ("Duracion de " + this.nombre + ": " + this.getDuracion());
-	}
 }
