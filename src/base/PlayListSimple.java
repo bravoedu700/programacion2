@@ -21,11 +21,19 @@ public class PlayListSimple extends Musica {
 	}
 	
 	public Vector<Pista> busqueda(Criterio c){
-		Vector <Pista> resultado = new Vector<Pista>();
-		for(Enumeration<Musica> E = elementos.elements(); E.hasMoreElements();)
-				resultado.addAll(E.nextElement().busqueda(c));
-		return resultado;
+		Vector <Pista> pistas = new Vector<Pista>();
+		Vector <Pista> pistasRetornados = new Vector<Pista>();
+		for(Enumeration<Musica> e = elementos.elements(); e.hasMoreElements();){
+				pistasRetornados = e.nextElement().busqueda(c);
+				for(Enumeration<Pista> f = pistasRetornados.elements(); f.hasMoreElements();){
+					Pista miPista = f.nextElement();
+					if(!pistas.contains(miPista))	
+						pistas.addElement(miPista);
+				}				
+		}
+		return pistas;
 	}
+	
 	
 	public String toString(){	
 		return this.getNombre();
@@ -39,12 +47,17 @@ public class PlayListSimple extends Musica {
 		return acum;
 	}
 
-	public int CantidadElementos() {
+	public int cantidadElementos() {
 		int cantidad = 0;
 		for(int i = 0; i < this.elementos.size(); i++){
-			cantidad += this.elementos.elementAt(i).CantidadElementos();
+			cantidad += this.elementos.elementAt(i).cantidadElementos();
 		}
 		return cantidad;
 	}
 	
+	public void eliminar(Musica m) {
+		if (elementos.contains(m)){
+			elementos.remove(m);
+		}
+	}
 }

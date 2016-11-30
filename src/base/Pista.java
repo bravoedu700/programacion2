@@ -110,7 +110,8 @@ public class Pista extends Musica{
 	}
 
 
-	public int CantidadElementos() {
+	public int cantidadElementos() {
 		return 1;
 	}
+	
 }

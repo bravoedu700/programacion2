@@ -6,8 +6,8 @@ public abstract class Musica {
 	String nombre;
 	public abstract int getDuracion();
 	public abstract Vector<Pista> busqueda(Criterio c);
-	public abstract int CantidadElementos();
-	
+	public abstract int cantidadElementos();
+
 	public String getNombre() {
 		return nombre;
 	}

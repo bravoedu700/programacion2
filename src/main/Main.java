@@ -10,29 +10,29 @@ import busquedas.*;
 
 public class Main {
 
-	public static void mostrar_resultado(Vector <Pista> P){
+	public static void mostrarResultado(Vector <Pista> p){
 				
-		if(P.isEmpty()){
+		if(p.isEmpty()){
 			System.out.println("Sin resultados");
 		}
 		else
 		{
-			for(Enumeration<Pista> E = P.elements(); E.hasMoreElements();){
-				System.out.println(E.nextElement().toString());
+			for(Enumeration<Pista> e = p.elements(); e.hasMoreElements();){
+				System.out.println(e.nextElement().toString());
 			}
 		}
 	}
 	
-	public static void mostrar_lista(PlayListSimple P){
-		System.out.println(P.toString() + " (" + P.CantidadElementos() + " elementos)");
-		Vector<Musica> elementos = P.getElementos();
-		for(Enumeration<Musica> E = elementos.elements(); E.hasMoreElements();){
-			System.out.println(E.nextElement().toString());
+	public static void mostrarLista(PlayListSimple p){
+		System.out.println(p.toString() + " (" + p.cantidadElementos() + " elementos)");
+		Vector<Musica> elementos = p.getElementos();
+		for(Enumeration<Musica> e = elementos.elements(); e.hasMoreElements();){
+			System.out.println(e.nextElement().toString());
 		}
 	}
 	
-	public static void mostrar_duracion(Musica M){
-		System.out.println("La duración de " + M.getNombre() + " es " + M.getDuracion());		
+	public static void mostrarDuracion(Musica m){
+		System.out.println("La duración de " + m.getNombre() + " es " + m.getDuracion());		
 	}
 	
 	public static void main(String[] args) {
@@ -88,19 +88,19 @@ public class Main {
 		//PARTE 1 - PUNTO 3 -------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 1 Punto 3 ------------------------------------------------------------------------------------------");
 		
-		mostrar_lista(clasicosDelRock);
-		mostrar_lista(loMejor);
-		mostrar_lista(coldplay);
+		mostrarLista(clasicosDelRock);
+		mostrarLista(loMejor);
+		mostrarLista(coldplay);
 		
 		System.out.println();
 		
 		//---------------------------------------------------------------------------------------------------------------------
 		//PARTE 1 - PUNTO 4 -------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 1 Punto 4 ------------------------------------------------------------------------------------------");
-		mostrar_duracion(clasicosDelRock);
-		mostrar_duracion(loMejor);
-		mostrar_duracion(coldplay);
-		mostrar_duracion(elIndio);
+		mostrarDuracion(clasicosDelRock);
+		mostrarDuracion(loMejor);
+		mostrarDuracion(coldplay);
+		mostrarDuracion(elIndio);
 		System.out.println();
 		
 		System.out.println("------------------------------------------------PARTE 2------------------------------------------------");
@@ -115,7 +115,7 @@ public class Main {
 		System.out.println("Pistas cuya duracion sea mayor a 400");
 		Vector<Pista> resultado1A = coleccion.busqueda(mayorDuracion);
 		
-		mostrar_resultado(resultado1A);
+		mostrarResultado(resultado1A);
 
 		System.out.println();
 		
@@ -124,7 +124,7 @@ public class Main {
 		CriterioParcialGenero rock = new CriterioParcialGenero("rOCk");
 		System.out.println("Pistas cuyo genero contiene 'Rock'");
 		Vector<Pista> resultado1B = coleccion.busqueda(rock);
-		mostrar_resultado(resultado1B);
+		mostrarResultado(resultado1B);
 		System.out.println();
 		
 		//PARTE 2 - PUNTO 1 C---------------------------------------------------------------------------------------------------------------
@@ -135,7 +135,7 @@ public class Main {
 		CriterioAnd critAnd = new CriterioAnd(nomRock, critNot);
 		System.out.println("Pistas cuyo nombre contiene 'rock' y el interprete NO es 'LMFAO'");
 		Vector<Pista> resultado1C = coleccion.busqueda(critAnd);
-		mostrar_resultado(resultado1C);		
+		mostrarResultado(resultado1C);		
 		System.out.println();
 		
 		//PARTE 2 - PUNTO 1 D---------------------------------------------------------------------------------------------------------------
@@ -147,7 +147,7 @@ public class Main {
 		CriterioOr critOr = new CriterioOr(critAnd2, critAnd3);
 		System.out.println("pistas cuyo genero contenga 'rock' y cuya fecha sea mayor a '2006', o cuyo genero contenga 'rock' y cuyo interprete sea 'coldplay'");
 		Vector<Pista> resultado1D = coleccion.busqueda(critOr);
-		mostrar_resultado(resultado1D);				
+		mostrarResultado(resultado1D);				
 		System.out.println();
 		
 		
@@ -159,22 +159,22 @@ public class Main {
 		
 		System.out.println("Pistas cuya duracion sea mayor a 400");
 		Vector<Pista> resultado21A = coleccion.busqueda(mayorDuracion);
-		mostrar_resultado(resultado21A);
+		mostrarResultado(resultado21A);
 		System.out.println();
 		
 		System.out.println("Pistas cuyo genero contiene 'Rock'");
 		Vector<Pista> resultado21B = coleccion.busqueda(rock);
-		mostrar_resultado(resultado21B);				
+		mostrarResultado(resultado21B);				
 		System.out.println();
 		
 		System.out.println("Pistas cuyo nombre contiene 'rock' y el interprete NO es 'LMFAO'");
 		Vector<Pista> resultado21C = coleccion.busqueda(critAnd);
-		mostrar_resultado(resultado21C);
+		mostrarResultado(resultado21C);
 		System.out.println();
 		
 		System.out.println("pistas cuyo genero contenga 'rock' y cuya fecha sea mayor a '2006', o cuyo genero contenga 'rock' y cuyo interprete sea 'coldplay'");
 		Vector<Pista> resultado21D = coleccion.busqueda(critOr);
-		mostrar_resultado(resultado21D);
+		mostrarResultado(resultado21D);
 		System.out.println();
 		//---------------------------------------------------------------------------------------------------------------------
 				
