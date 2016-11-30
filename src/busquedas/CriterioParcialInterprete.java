@@ -4,7 +4,7 @@ import base.Pista;
 
 public class CriterioParcialInterprete implements Criterio {
 
-	String interprete;
+	protected String interprete;
 	
 	public CriterioParcialInterprete(String interprete){
 		this.interprete = interprete;

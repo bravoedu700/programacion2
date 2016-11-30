@@ -3,7 +3,7 @@ package busquedas;
 import base.Pista;
 
 public class CriterioNot implements Criterio{
-	Criterio criterio;
+	private Criterio criterio;
 
 	public CriterioNot(Criterio c) {
 		this.criterio = c;

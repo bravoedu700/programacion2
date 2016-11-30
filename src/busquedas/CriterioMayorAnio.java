@@ -4,7 +4,7 @@ import base.Pista;
 
 public class CriterioMayorAnio implements Criterio {
 
-	int valor;
+	protected int valor;
 	
 	public CriterioMayorAnio(int valor) {
 		this.valor = valor;

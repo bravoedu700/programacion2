@@ -3,7 +3,7 @@ import base.Pista;
 
 public class CriterioMayorDuracion implements Criterio {
 
-	int valor;
+	protected int valor;
 	
 	public CriterioMayorDuracion(int valor) {
 		this.valor = valor;

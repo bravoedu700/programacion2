@@ -3,8 +3,9 @@ package busquedas;
 import base.Pista;
 
 public class CriterioOr implements Criterio{
-	Criterio criterio1;
-	Criterio criterio2;
+	
+	protected Criterio criterio1;
+	protected Criterio criterio2;
 	
 	public CriterioOr(Criterio c1, Criterio c2) {
 		this.criterio1 = c1;

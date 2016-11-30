@@ -6,24 +6,24 @@ import busquedas.Criterio;
 
 public class PlayListSimple extends Musica {
 	
-	Vector <Musica> elementos = new Vector<Musica>();
+	protected Vector <Musica> elementos = new Vector<Musica>();
 
 	public PlayListSimple(String nom) {
-		nombre = nom;
+		super.nombre = nom;
 	}
 
 	public Vector<Musica> getElementos() {
-		return elementos;
+		return this.elementos;
 	}
 
 	public void addElemento (Musica m){
-		elementos.add(m);
+		this.elementos.add(m);
 	}
 	
 	public Vector<Pista> busqueda(Criterio c){
 		Vector <Pista> pistas = new Vector<Pista>();
 		Vector <Pista> pistasRetornados = new Vector<Pista>();
-		for(Enumeration<Musica> e = elementos.elements(); e.hasMoreElements();){
+		for(Enumeration<Musica> e = this.elementos.elements(); e.hasMoreElements();){
 				pistasRetornados = e.nextElement().busqueda(c);
 				for(Enumeration<Pista> f = pistasRetornados.elements(); f.hasMoreElements();){
 					Pista miPista = f.nextElement();
@@ -36,7 +36,10 @@ public class PlayListSimple extends Musica {
 	
 	
 	public String toString(){	
-		return this.getNombre();
+		String msj = this.getNombre()+"\n";
+		for (int i=0; i < this.elementos.size(); i++)
+			msj += this.elementos.elementAt(i).toString() + "\n";
+		return msj;
 	}
 	
 	public int getDuracion() {
@@ -55,7 +58,26 @@ public class PlayListSimple extends Musica {
 		return cantidad;
 	}
 	
-	public void eliminar(Musica m) {
+	public boolean equals(Object obj){
+		if (obj instanceof PlayListSimple) 
+		{
+			PlayListSimple p = (PlayListSimple) obj;
+        	if(p.getNombre().equals(this.getNombre())){
+        		Vector<Musica> elementos = p.getElementos();
+        		if(elementos.equals(this.getElementos()))
+        			return true;
+        		else
+        			return false;
+            }
+        	else
+        		return false;
+        } 
+        else { 
+        	return false; 
+        }		
+	}
+	
+	public void eliminarElemento(Musica m) {
 		if (elementos.contains(m)){
 			elementos.remove(m);
 		}

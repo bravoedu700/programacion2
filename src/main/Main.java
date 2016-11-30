@@ -23,14 +23,6 @@ public class Main {
 		}
 	}
 	
-	public static void mostrarLista(PlayListSimple p){
-		System.out.println(p.toString() + " (" + p.cantidadElementos() + " elementos)");
-		Vector<Musica> elementos = p.getElementos();
-		for(Enumeration<Musica> e = elementos.elements(); e.hasMoreElements();){
-			System.out.println(e.nextElement().toString());
-		}
-	}
-	
 	public static void mostrarDuracion(Musica m){
 		System.out.println("La duración de " + m.getNombre() + " es " + m.getDuracion());		
 	}
@@ -88,9 +80,11 @@ public class Main {
 		//PARTE 1 - PUNTO 3 -------------------------------------------------------------------------------------------------------------
 		System.out.println("Parte 1 Punto 3 ------------------------------------------------------------------------------------------");
 		
-		mostrarLista(clasicosDelRock);
-		mostrarLista(loMejor);
-		mostrarLista(coldplay);
+		System.out.println(clasicosDelRock.toString());
+		System.out.println(loMejor.toString());
+		System.out.println(coldplay.toString());
+
+		
 		
 		System.out.println();
 		

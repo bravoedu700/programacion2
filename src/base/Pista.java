@@ -5,57 +5,67 @@ import java.util.*;
 import busquedas.Criterio;
 
 public class Pista extends Musica{
-	int id;
-	int duracion;
-	String interprete;
-	String album;
-	String genero;
-	String comentarios;
-	int anio;
+	protected int id;
+	protected int duracion;
+	protected String interprete;
+	protected String album;
+	protected String genero;
+	protected String comentarios;
+	protected int anio;
 	
 	public Pista(int num, int dur, String inte, String alb, String gen, String com, int an, String nom) {
-		id = num;
-		duracion = dur;
-		interprete = inte;
-		album = alb;
-		genero = gen;
-		comentarios = com;
-		anio = an;
-		nombre = nom;
+		this.id = num;
+		this.duracion = dur;
+		this.interprete = inte;
+		this.album = alb;
+		this.genero = gen;
+		this.comentarios = com;
+		this.anio = an;
+		super.nombre = nom;
 	}
 	
 	public int getId(){
-		return id;
+		return this.id;
 	}
 
 	public String getInterprete() {
-		return interprete;
+		return this.interprete;
 	}
 
 	public int getDuracion() {
-		return duracion;
+		return this.duracion;
 	}
 
 	public int getAnio() {
-		return anio; 
+		return this.anio; 
 	}
 
 	public String getGenero() {
-		return genero;
+		return this.genero;
 	}
 
 	public String getAlbum() {
-		return album;
+		return this.album;
 	}
 	
-	public String getNombre() {
-		return nombre;
+	public void setDuracion (int d){
+		duracion = d;
 	}
-		
-	public String toString(){
-		
-		return ( this.getId() + " - " + this.getNombre() + " - " + this.getInterprete() + " - " +this.getAlbum() + " - ("+this.getGenero()+", "+this.getAnio()+") - " +this.getDuracion());
-
+	
+	public void setInterprete(String i){
+		interprete = i;
+	}
+	
+	public void setAlbum(String a){
+		album = a;
+	}
+	
+	public void setAnio(int a){
+		anio = a;
+	}
+	
+	public void setGenero(String g){
+		genero = g;
 	}
 	
 	public Vector<Pista> busqueda(Criterio c){
@@ -65,6 +75,11 @@ public class Pista extends Musica{
 			pistas.addElement(this);
 		}
 		return pistas;
+	}
+
+	
+	public int cantidadElementos() {
+		return 1;
 	}
 	
 	public boolean equals (Object obj) {
@@ -87,31 +102,8 @@ public class Pista extends Musica{
         	return false; 
         }
 	}
-	
-	
-	public void setDuracion (int d){
-		duracion = d;
+		
+	public String toString(){		
+		return ( this.getId() + " - " + this.getNombre() + " - " + this.getInterprete() + " - " +this.getAlbum() + " - ("+this.getGenero()+", "+this.getAnio()+") - " +this.getDuracion());
 	}
-	
-	public void setInterprete(String i){
-		interprete = i;
-	}
-	
-	public void setAlbum(String a){
-		album = a;
-	}
-	
-	public void setAnio(int a){
-		anio = a;
-	}
-	
-	public void setGenero(String g){
-		genero = g;
-	}
-
-
-	public int cantidadElementos() {
-		return 1;
-	}
-	
 }

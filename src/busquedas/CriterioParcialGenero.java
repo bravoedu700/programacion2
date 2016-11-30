@@ -4,7 +4,7 @@ import base.Pista;
 
 public class CriterioParcialGenero implements Criterio {
 
-	String genero;
+	protected String genero;
 	
 	public CriterioParcialGenero(String genero){
 		this.genero = genero;

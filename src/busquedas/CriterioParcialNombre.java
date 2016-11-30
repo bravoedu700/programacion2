@@ -4,7 +4,7 @@ import base.Pista;
 
 public class CriterioParcialNombre implements Criterio {
 	
-	String nombre;
+	protected String nombre;
 	
 	public CriterioParcialNombre(String nombre){
 		this.nombre = nombre;

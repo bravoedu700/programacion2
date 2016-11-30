@@ -3,8 +3,8 @@ package busquedas;
 import base.Pista;
 
 public class CriterioAnd implements Criterio {
-	public Criterio criterio1;
-	public Criterio criterio2;
+	protected Criterio criterio1;
+	protected Criterio criterio2;
 	
 	public CriterioAnd(Criterio c1, Criterio c2) {
 		this.criterio1 = c1;
